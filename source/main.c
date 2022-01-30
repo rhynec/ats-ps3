@@ -43,7 +43,7 @@ void release_all();
 #define VERSION         "v1.0.0"
 #define MSG_USAGE       "< > Browse (x) Select (o) Exit"
 #define MSG_CREDITS     "Credits: Berion, Bucanero, Hermes, sguerrini, zecoxao"
-#define PS3TOOLS_PATH   "/dev_hdd0/game/PS3T000LZ"
+#define PS3TOOLS_PATH   "/dev_hdd0/game/HPOPS3ATS"
 
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
@@ -250,7 +250,7 @@ static void control_thread(void* arg)
                         flag_exit = 2;
 
                         if(directories[curdir].device)
-                            sprintf(bootpath, "/dev_usb000/PS3T000LZ/%s/tool.self", &directories[curdir].name[0]);
+                            sprintf(bootpath, "/dev_usb000/HPOPS3ATS/%s/tool.self", &directories[curdir].name[0]);
                         else
                             sprintf(bootpath, "%s/TOOLS/%s/tool.self", PS3TOOLS_PATH, &directories[curdir].name[0]);
                     
@@ -611,12 +611,12 @@ static void file_thread(void* arg)
         if((counter2 & 31)==0) {
             int refresh = 0;
 
-            if(sysLv2FsOpenDir("/dev_usb000/PS3T000LZ/", &dir) == 0) {
+            if(sysLv2FsOpenDir("/dev_usb000/HPOPS3ATS/", &dir) == 0) {
                 if(!pendrive_test) {hdd_test = 0; device_mode = 1; refresh = 1;} else sysLv2FsCloseDir(dir);
             } else {
 /*
                 if(device_mode == 0 && sysLv2FsOpenDir("/dev_usb000/", &dir) == 0) {
-                    mkdir("/dev_usb000/PS3T000LZ", 0777);
+                    mkdir("/dev_usb000/HPOPS3ATS", 0777);
                    sysLv2FsCloseDir(dir);
                    hdd_test = 0; pendrive_test = 0;
                    ndirectories = 0;
@@ -652,7 +652,7 @@ static void file_thread(void* arg)
                         directories[n].title[0] = 0;
 
                         if(device_mode)
-                            sprintf(filename, "/dev_usb000/PS3T000LZ/%s/title.txt", &directories[n].name[0]);
+                            sprintf(filename, "/dev_usb000/HPOPS3ATS/%s/title.txt", &directories[n].name[0]);
                         else
                             sprintf(filename, "%s/TOOLS/%s/title.txt", PS3TOOLS_PATH, &directories[n].name[0]);
                        
@@ -691,7 +691,7 @@ static void file_thread(void* arg)
                 if(ndirectories && directories[index].text<0) {
                     
                     if(directories[index].device)
-                        sprintf(filename, "/dev_usb000/PS3T000LZ/%s/ICON0.PNG", &directories[index].name[0]);
+                        sprintf(filename, "/dev_usb000/HPOPS3ATS/%s/ICON0.PNG", &directories[index].name[0]);
                     else
                         sprintf(filename, "%s/TOOLS/%s/ICON0.PNG", PS3TOOLS_PATH, &directories[index].name[0]);
 

@@ -11,7 +11,7 @@ endif
 #  TITLE, APPID, CONTENTID, ICON0 SFOXML before ppu_rules.
 #---------------------------------------------------------------------------------
 TITLE		:=	PS3 Advanced Tools
-APPID		:=	PS3T000LZ
+APPID		:=	HPOPS3ATS
 CONTENTID	:=	UP0001-$(APPID)_00-0000000000000000
 SFOXML		:=	package.xml
 ICON0       :=	$(CURDIR)/pkgfiles/ICON0.PNG
